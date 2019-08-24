@@ -13,7 +13,7 @@ class Curry(type):
                 raise TypeError('minargs must be an integer')
             elif minargs < 0:
                 raise ValueError('minargs must not be negative')
-        curried = type(f'_Curried_{id(func)}', (), {
+        curried = type(f'_Curried_{id(func)}', (object,), {
             '__doc__': (
                 f'Proxy object that stores an argument tuple and dictionary for'
                 f'the curried function {func.__name__}.'
